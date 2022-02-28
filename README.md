@@ -1,12 +1,10 @@
-
-
 <p>
   <h1>RepSteps Recorder</h1>
 </p>
 
 ## 👀 Overview
 
-Headless recorder is a Chrome extension that records your browser interactions and generates replication steps. Install it from the [Chrome Webstore]() to get started!
+RepSteps Recorder is a Chrome extension that records your browser interactions and generates replication steps. Install it from the [Chrome Webstore]() to get started!
 
 This project builds on existing open source projects (see [Credits](#-credits)) but adds extensibility, configurability and a smoother UI. For more information, please check our [documentation]().
 
@@ -81,19 +79,9 @@ $ npm run build # build and zip for production
 
 <br>
 
-## 🚀 Release
-
-1. Bump version using `npm version` (patch, minor, major).
-2. Push changes with tags `git push --tags`
-3. Generate a release using **gren**: `gren release --override --data-source=milestones --milestone-match="{{tag_name}}"`
-
-> 🚨 Make sure all issues associated with the new version are linked to a milestone with the name of the tag.
-
-<br>
-
 ## 🙏 Credits
 
-RepSteps recorder is inspired and influenced by Checkly's [Headless Recorder](https://github.com/checkly/headless-recorder)
+RepSteps recorder is inspired and heavily influenced by Checkly's [Headless Recorder](https://github.com/checkly/headless-recorder)
 
 <br>
 
