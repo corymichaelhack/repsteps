@@ -16,6 +16,7 @@
 
     <Results
       :repSteps="codeForRepSteps"
+      :browserInfo="codeForbrowserInfo"
       :options="options"
       v-if="showResultsTab"
       v-on:update:tab="currentResultTab = $event"
@@ -94,6 +95,7 @@ export default {
       liveEvents: [],
       recording: [],
       codeForRepSteps: '',
+      codeForbrowserInfo: '',
       options: defaultOptions,
     }
   },
@@ -154,6 +156,7 @@ export default {
     cleanUp() {
       this.recording = this.liveEvents = []
       this.codeForRepSteps = ''
+      this.codeForbrowserInfo = ''
       this.showResultsTab = this.isRecording = this.isPaused = false
       this.storeState()
     },
@@ -161,10 +164,11 @@ export default {
     async generateCode() {
       const { recording, options = { code: {} } } = await storage.get(['recording', 'options'])
       const generator = new CodeGenerator(options.code)
-      const { repSteps } = generator.generate(recording)
+      const { repSteps, browserInfo } = generator.generate(recording)
 
       this.recording = recording
       this.codeForRepSteps = repSteps
+      this.codeForbrowserInfo = browserInfo
       this.showResultsTab = true
     },
 
@@ -178,6 +182,7 @@ export default {
         controls = {},
         options,
         codeForRepSteps = '',
+        codeForbrowserInfo = '',
         recording,
         clear,
         pause,
@@ -186,6 +191,7 @@ export default {
         'controls',
         'options',
         'codeForRepSteps',
+        'codeForbrowserInfo',
         'recording',
         'clear',
         'pause',
@@ -196,6 +202,7 @@ export default {
       this.isPaused = controls.isPaused
       this.options = options || defaultOptions
       this.codeForRepSteps = codeForRepSteps
+      this.codeForbrowserInfo = codeForbrowserInfo
 
       if (this.isRecording) {
         this.liveEvents = recording
@@ -223,6 +230,7 @@ export default {
     storeState() {
       storage.set({
         codeForRepSteps: this.codeForRepSteps,
+        codeForbrowserInfo: this.codeForbrowserInfo,
         controls: { isRecording: this.isRecording, isPaused: this.isPaused },
       })
     },
@@ -239,7 +247,8 @@ export default {
     },
 
     getCode() {
-      return this.codeForRepSteps
+      // console.log("hello " + this.codeForbrowserInfo)
+      return this.currentResultTab === 'repSteps' ? this.codeForRepSteps : this.codeForbrowserInfo
     },
   },
 }

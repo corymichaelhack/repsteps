@@ -44,6 +44,10 @@ export default {
       type: String,
       default: '',
     },
+    browserInfo: {
+      type: String,
+      default: '',
+    },
     options: {
       type: Object,
       default: () => ({}),
@@ -53,13 +57,13 @@ export default {
   data() {
     return {
       activeTab: headlessTypes.REPSTEPS,
-      tabs: [headlessTypes.REPSTEPS],
+      tabs: [headlessTypes.REPSTEPS, headlessTypes.BROWSERINFO],
     }
   },
 
   computed: {
     code: function() {
-      return this.repSteps
+      return this.activeTab === headlessTypes.REPSTEPS ? this.repSteps : this.browserInfo
     },
   },
 
