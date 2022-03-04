@@ -1,21 +1,17 @@
 # Pull Request Template
 
 ## Why?
- What is the problem this PR attempts to solve, and why is it important? Feature? Bug fix? 
+ _What is the problem this PR attempts to solve, and why is it important? Feature? Bug fix?_ 
 
 ## What?
-
-What does this PR change and how does it solve the problem noted above? 
+_What does this PR change and how does it solve the problem noted above?_
 
 ## Testing Notes
-Set the stage for the Reviewer
-
 ### Setup/Preperation
-Is any special setup required for testing this change?
+_Is any special setup required for testing this change?_
 
 ### Feature Testing Steps
-
-List all the necessary steps to review and test this change.
+_List all the necessary steps to review and test this change._
 
 ## Checklist:
 
