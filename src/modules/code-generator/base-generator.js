@@ -19,7 +19,6 @@ export default class BaseGenerator {
   }
 
   _parseEvents(events) {
-    console.log(events)
     let result = ''
 
     if (!events) return result
@@ -37,7 +36,6 @@ export default class BaseGenerator {
           this._blocks.push(this._handleClick(tagName, text))
           break
         case 'change':
-          console.log(tagName)
           if (tagName === 'SELECT') {
             this._blocks.push(this._handleChange(escapedSelector, value, text))
           }
