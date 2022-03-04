@@ -1,4 +1,3 @@
-import Block from '@/modules/code-generator/block'
 import { headlessActions } from '@/modules/code-generator/constants'
 import BaseGenerator from '@/modules/code-generator/base-generator'
 

@@ -15,8 +15,7 @@ export default class BrowserInfoGenerator extends BaseGenerator {
 
     if (!events) return result
     for (let i = 0; i < events.length; i++) {
-      const { action, selector, value, href, keyCode, tagName, text } = events[i]
-      const escapedSelector = selector ? selector?.replace(/\\/g, '\\\\') : selector
+      const { action, value } = events[i]
 
       switch (action) {
         case headlessActions.VIEWPORT:
