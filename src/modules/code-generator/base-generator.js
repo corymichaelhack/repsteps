@@ -70,9 +70,7 @@ export default class BaseGenerator {
   }
 
   _postProcess() {
-    if (this._options.blankLinesBetweenBlocks && this._blocks.length > 0) {
       this._postProcessAddBlankLines()
-    }
   }
 
   _handleKeyDown(value) {
@@ -91,10 +89,15 @@ export default class BaseGenerator {
         type: eventsToRecord.CLICK,
         value: `Click inside ${tagName} field`,
       })
+    } else if (tagName === ('A' || 'LINK')){
+      block.addLine({
+        type: eventsToRecord.CLICK,
+        value: `Click link with text: "${text}"`,
+      })
     } else {
       block.addLine({
         type: eventsToRecord.CLICK,
-        value: `Click ${tagName} tag with text: "${text}"`,
+        value: `Click text: "${text}"`,
       })
     }
     return block
