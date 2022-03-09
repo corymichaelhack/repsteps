@@ -12,7 +12,6 @@ import { ref } from 'vue'
 import { version } from '../../package.json'
 
 export default {
-
   setup() {
     return {
       version: ref(version),

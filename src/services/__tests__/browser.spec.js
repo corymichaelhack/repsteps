@@ -6,11 +6,7 @@ const copyText = {
   data: '',
 }
 
-const cookies = [
-  {
-    
-  },
-]
+const cookies = [{}]
 
 window.chrome = {
   tabs: {

@@ -65,7 +65,7 @@
 
       <section>
         <h2>Generator</h2>
- <!--   <Toggle v-model="options.code.blankLinesBetweenBlocks">
+        <!--   <Toggle v-model="options.code.blankLinesBetweenBlocks">
           Add blank lines between code blocks
         </Toggle> -->
       </section>
