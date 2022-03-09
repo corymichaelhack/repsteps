@@ -18,5 +18,5 @@ export const eventsToRecord = {
 
 export const headlessTypes = {
   REPSTEPS: 'repSteps',
-  BROWSERINFO: 'Browser Info'
+  BROWSERINFO: 'Browser Info',
 }

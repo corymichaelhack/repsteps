@@ -65,13 +65,9 @@
 
       <section>
         <h2>Generator</h2>
-        <!-- <Toggle v-model="options.code.waitForSelectorOnClick">
-          Add <code>waitForSelector</code> lines before every
-          <code>page.click()</code>
-        </Toggle> -->
-        <Toggle v-model="options.code.blankLinesBetweenBlocks">
+        <!--   <Toggle v-model="options.code.blankLinesBetweenBlocks">
           Add blank lines between code blocks
-        </Toggle>
+        </Toggle> -->
       </section>
 
       <section>

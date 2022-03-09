@@ -30,9 +30,7 @@ describe('RecordingTab.vue', () => {
     const wrapper = await mount(ResultsTab, {
       props: {
         options: {
-          code: {
-            
-          },
+          code: {},
         },
       },
     })
