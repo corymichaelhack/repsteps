@@ -91,7 +91,7 @@ export default {
       isRecording: false,
       isPaused: false,
       isCopying: false,
-      currentResultTab: null,
+      currentResultTab: 'repSteps',
       liveEvents: [],
       recording: [],
       codeForRepSteps: '',
