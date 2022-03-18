@@ -76,10 +76,3 @@ describe('openOptionsPage', () => {
     expect(window.chrome.runtime.openOptionsPage.mock.calls.length).toBe(1)
   })
 })
-
-describe('openHelpPage', () => {
-  it('calls function that creates new tab and opens help page', async () => {
-    browser.openHelpPage()
-    expect(window.chrome.tabs.create.mock.calls.length).toBe(1)
-  })
-})

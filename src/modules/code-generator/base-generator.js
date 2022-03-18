@@ -2,12 +2,11 @@ import Block from '@/modules/code-generator/block'
 import { headlessActions, eventsToRecord } from '@/modules/code-generator/constants'
 
 export const defaults = {
-  blankLinesBetweenBlocks: true,
   keyCode: 13,
 }
 export default class BaseGenerator {
   constructor(options) {
-    this._options = Object.assign(options)
+    this._options = Object.assign(defaults, options)
     this._blocks = []
     this._screenshotCounter = 0
 
@@ -22,6 +21,7 @@ export default class BaseGenerator {
     let result = ''
 
     if (!events) return result
+
     for (let i = 0; i < events.length; i++) {
       const { action, selector, value, href, keyCode, tagName, text } = events[i]
       const escapedSelector = selector ? selector?.replace(/\\/g, '\\\\') : selector
@@ -106,7 +106,7 @@ export default class BaseGenerator {
   _handleChange(selector, value) {
     return new Block({
       type: eventsToRecord.CHANGE,
-      value: `Input a value like: '${value}'`,
+      value: `Input a value like: ${value}`,
     })
   }
 

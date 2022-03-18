@@ -75,9 +75,6 @@
         <Toggle v-model="options.extension.darkMode">
           Use Dark Mode {{ options.extension.darkMode }}
         </Toggle>
-        <!-- <Toggle v-model="options.extension.telemetry">
-          Allow recording of usage telemetry
-        </Toggle> -->
         <p>
           We only record clicks for basic product development, no website content or input data.
           Data is never, ever shared with 3rd parties.
@@ -101,7 +98,6 @@ import Toggle from '@/components/Toggle'
 const defaultOptions = {
   code,
   extension: {
-    // telemetry: true,
     darkMode: isDarkMode(),
   },
 }

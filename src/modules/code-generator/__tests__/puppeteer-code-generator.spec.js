@@ -5,22 +5,20 @@ describe('RepStepListGenerator', () => {
   test('it should generate nothing when there are no events', () => {
     const events = []
     const codeGenerator = new RepStepListGenerator()
-    expect(codeGenerator._parseEvents(events)).toBeFalsy()
+    expect(codeGenerator._parseEvents(events)).toContain('')
   })
 
-  test('it generates a page.select() only for select dropdowns', () => {
+  test('it generates input values', () => {
     const events = [
       {
         action: 'change',
-        selector: 'select#animals',
+        // selector: 'select#animals',
         tagName: 'SELECT',
         value: 'hamster',
       },
     ]
     const codeGenerator = new RepStepListGenerator()
-    expect(codeGenerator._parseEvents(events)).toContain(
-      "await page.select('select#animals', 'hamster')"
-    )
+    expect(codeGenerator._parseEvents(events)).toContain('Input a value like: hamster')
   })
 
   test('it generates the correct waitForNavigation code', () => {
