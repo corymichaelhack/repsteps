@@ -117,22 +117,23 @@ export default class BaseGenerator {
     })
   }
 
-  _handleScreenshot(value) {
-    this._screenshotCounter += 1
+// include screenshot
+//   _handleScreenshot(value) {
+//     this._screenshotCounter += 1
 
-    if (value) {
-      return new Block({
-        type: headlessActions.SCREENSHOT,
-        value: `const element${this._screenshotCounter} = await page.$('${value}')
-await element${this._screenshotCounter}.screenshot({ path: 'screenshot_${this._screenshotCounter}.png' })`,
-      })
-    }
+//     if (value) {
+//       return new Block({
+//         type: headlessActions.SCREENSHOT,
+//         value: `const element${this._screenshotCounter} = await page.$('${value}')
+// await element${this._screenshotCounter}.screenshot({ path: 'screenshot_${this._screenshotCounter}.png' })`,
+//       })
+//     }
 
-    return new Block({
-      type: headlessActions.SCREENSHOT,
-      value: `await ${this._frame}.screenshot({ path: 'screenshot_${this._screenshotCounter}.png', fullPage: true })`,
-    })
-  }
+//     return new Block({
+//       type: headlessActions.SCREENSHOT,
+//       value: `await ${this._frame}.screenshot({ path: 'screenshot_${this._screenshotCounter}.png', fullPage: true })`,
+//     })
+//   }
 
   _handleNavigation(href) {
     const block = new Block()
