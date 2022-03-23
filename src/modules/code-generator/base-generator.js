@@ -89,7 +89,7 @@ export default class BaseGenerator {
         type: eventsToRecord.CLICK,
         value: `Click inside ${tagName} field`,
       })
-    } else if (tagName === ('A' || 'LINK')) {
+    } else if (tagName === ('A' || 'BUTTON')) {
       block.addLine({
         type: eventsToRecord.CLICK,
         value: `Click link with text: "${text}"`,

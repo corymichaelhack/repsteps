@@ -102,22 +102,21 @@ describe('RepStepListGenerator', () => {
     const events = [
       {
         action: 'keydown',
-        keyCode: 9,
-        selector: 'input.value',
-        value: "hello');console.log('world",
+        keyCode: 13,
+        value: 'hello world',
       },
     ]
     const codeGenerator = new RepStepListGenerator()
     const result = codeGenerator._parseEvents(events)
 
-    expect(result).toContain("await page.type('input.value', 'hello\\');console.log(\\'world')")
+    expect(result).toContain("Type value: 'hello world' into INPUT and hit Return/Enter")
   })
 
-  test('it generates the correct escaped value with backslash', () => {
-    const events = [{ action: 'click', selector: 'button.\\hello\\' }]
+  test('it generates the correct output for click on A tag or link', () => {
+    const events = [{ action: 'click', tagName: 'INPUT' }]
     const codeGenerator = new RepStepListGenerator()
     const result = codeGenerator._parseEvents(events)
 
-    expect(result).toContain("await page.click('button.\\\\hello\\\\')")
+    expect(result).toContain('Click inside INPUT field')
   })
 })
