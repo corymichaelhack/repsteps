@@ -127,13 +127,16 @@ class Background {
     })
   }
 
-  recordScreenshot(value) {
-    this.handleMessage({
-      selector: undefined,
-      value,
-      action: headlessActions.SCREENSHOT,
-    })
-  }
+// ==============================================================
+//include screenshots
+  // recordScreenshot(value) {
+  //   this.handleMessage({
+  //     selector: undefined,
+  //     value,
+  //     action: headlessActions.SCREENSHOT,
+  //   })
+  // }
+// ==============================================================
 
   handleMessage(msg, sender) {
     if (msg.control) {

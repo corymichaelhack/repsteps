@@ -2,12 +2,11 @@ import Block from '@/modules/code-generator/block'
 import { headlessActions, eventsToRecord } from '@/modules/code-generator/constants'
 
 export const defaults = {
-  blankLinesBetweenBlocks: true,
   keyCode: 13,
 }
 export default class BaseGenerator {
   constructor(options) {
-    this._options = Object.assign(options)
+    this._options = Object.assign(defaults, options)
     this._blocks = []
     this._screenshotCounter = 0
 
@@ -22,6 +21,7 @@ export default class BaseGenerator {
     let result = ''
 
     if (!events) return result
+
     for (let i = 0; i < events.length; i++) {
       const { action, selector, value, href, keyCode, tagName, text } = events[i]
       const escapedSelector = selector ? selector?.replace(/\\/g, '\\\\') : selector
@@ -89,7 +89,7 @@ export default class BaseGenerator {
         type: eventsToRecord.CLICK,
         value: `Click inside ${tagName} field`,
       })
-    } else if (tagName === ('A' || 'LINK')) {
+    } else if (tagName === ('A' || 'BUTTON')) {
       block.addLine({
         type: eventsToRecord.CLICK,
         value: `Click link with text: "${text}"`,
@@ -106,7 +106,7 @@ export default class BaseGenerator {
   _handleChange(selector, value) {
     return new Block({
       type: eventsToRecord.CHANGE,
-      value: `Input a value like: '${value}'`,
+      value: `Input a value like: ${value}`,
     })
   }
 
@@ -117,22 +117,23 @@ export default class BaseGenerator {
     })
   }
 
-  _handleScreenshot(value) {
-    this._screenshotCounter += 1
+// include screenshot
+//   _handleScreenshot(value) {
+//     this._screenshotCounter += 1
 
-    if (value) {
-      return new Block({
-        type: headlessActions.SCREENSHOT,
-        value: `const element${this._screenshotCounter} = await page.$('${value}')
-await element${this._screenshotCounter}.screenshot({ path: 'screenshot_${this._screenshotCounter}.png' })`,
-      })
-    }
+//     if (value) {
+//       return new Block({
+//         type: headlessActions.SCREENSHOT,
+//         value: `const element${this._screenshotCounter} = await page.$('${value}')
+// await element${this._screenshotCounter}.screenshot({ path: 'screenshot_${this._screenshotCounter}.png' })`,
+//       })
+//     }
 
-    return new Block({
-      type: headlessActions.SCREENSHOT,
-      value: `await ${this._frame}.screenshot({ path: 'screenshot_${this._screenshotCounter}.png', fullPage: true })`,
-    })
-  }
+//     return new Block({
+//       type: headlessActions.SCREENSHOT,
+//       value: `await ${this._frame}.screenshot({ path: 'screenshot_${this._screenshotCounter}.png', fullPage: true })`,
+//     })
+//   }
 
   _handleNavigation(href) {
     const block = new Block()

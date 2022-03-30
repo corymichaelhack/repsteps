@@ -32,9 +32,12 @@ export default class RepStepListGenerator extends BaseGenerator {
           this._blocks.push(this._handleNavigation(href))
           this._hasNavigation = true
           break
-        case headlessActions.SCREENSHOT:
-          this._blocks.push(this._handleScreenshot(value))
-          break
+// ==============================================================
+      // include screenshots    
+        // case headlessActions.SCREENSHOT:
+        //   this._blocks.push(this._handleScreenshot(value))
+        //   break
+// ==============================================================
       }
     }
 
